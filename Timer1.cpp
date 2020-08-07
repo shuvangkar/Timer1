@@ -95,6 +95,7 @@ void Adc::detachInterrupt()
   
 }
 
+
 void Adc::startConversion(byte channel)
 {
   setChannel(channel);

@@ -32,7 +32,7 @@ class Adc
     void attachInterrupt(void (*isr)()); 
     void detachInterrupt();
     void setChannel(byte channel);
-    void (*isrCallback)(); //Function pointer for interrupt routine
+    void (*isrCallback)();               //Function pointer for interrupt routine
     void setAutoTriggerSource(byte source);
     void startConversion(byte channel = 0);
 };
