@@ -96,12 +96,12 @@ void Adc::attachInterrupt(void (*isr)())
   	isrCallback = isr;
   }
   sei();                  //Enable Global Interrupt
-  ADCSRA |= (1 << ADIE);  //ADC Conversion complete interrupt enable
+  ADCSRA |= ((1 << ADIE)| (1 << ADEN));  //ADC Conversion complete interrupt enable
   
 }
 void Adc::detachInterrupt()
 {
-  
+  ADCSRA &= ~((1 << ADEN) | (1 << ADIE));
 }
 
 
