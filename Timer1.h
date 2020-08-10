@@ -11,10 +11,11 @@ class Timer1
     void initialize(float freq);
     void setTopValue(float freq);
     //    void attachInterrupt(void (*isr)());
-    void attachIntCompB(void (*isr)());
+    void attachIntCompB(void (*isr)() = NULL);
     //    void detachInterrupt();
     void start();
     void stop();
+    // virtual void isrCallback() = 0;
     void (*isrCallback)(); //Function pointer for interrupt routine
   private:
     unsigned char _prescalerBits;
@@ -29,10 +30,11 @@ class Adc
 {
   public :
     void begin();
-    void attachInterrupt(void (*isr)()); 
+    void attachInterrupt(void (*isr)() = NULL); 
     void detachInterrupt();
     void setChannel(byte channel);
     void (*isrCallback)();               //Function pointer for interrupt routine
+    // virtual void isrCallback() = 0;
     void setAutoTriggerSource(byte source);
     void startConversion(byte channel = 0);
 };
