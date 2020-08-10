@@ -53,7 +53,10 @@ void Timer1::stop()
 
 void Timer1::attachIntCompB(void (*isr)())
 {
-  isrCallback = isr;
+  if(isr !=NULL)
+  {
+  	isrCallback = isr;
+  }
   sei();                    //Enable Global Interrupt
   TIMSK1 |= (1 << OCIE1B);  //Channel B update interrupt enable
 //  start();                  //start timer. 
@@ -85,7 +88,10 @@ void Adc::setAutoTriggerSource(byte source)
 
 void Adc::attachInterrupt(void (*isr)())
 {
-  isrCallback = isr;
+  if(isr !=NULL)
+  {
+  	isrCallback = isr;
+  }
   sei();                  //Enable Global Interrupt
   ADCSRA |= (1 << ADIE);  //ADC Conversion complete interrupt enable
   
