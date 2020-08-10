@@ -81,7 +81,10 @@ void Adc::begin()
 
 void Adc::setAutoTriggerSource(byte source)
 {
-  ADCSRA |= (1 << ADATE); //ADC Auto trigger enable
+  if(source)
+  {
+    ADCSRA |= (1 << ADATE); //ADC Auto trigger enable
+  }
   ADCSRB &= 0b11111000;   //Clearing trigger source bits
   ADCSRB |= source;
 }
