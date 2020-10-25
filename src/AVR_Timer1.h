@@ -2,7 +2,6 @@
 #define _TIMER1_H
 #include <Arduino.h>
 
-
 #define RESOLUTION 65536    // Timer1 is 16 bit
 
 class Timer1

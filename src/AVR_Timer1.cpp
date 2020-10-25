@@ -1,4 +1,4 @@
-#include "Timer1.h"
+#include "AVR_Timer1.h"
 
 Timer1 timer1; //preinitiate timer1
 
