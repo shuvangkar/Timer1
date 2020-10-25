@@ -21,24 +21,5 @@ class Timer1
     unsigned char _prescalerBits;
 };
 
-/**************Macro definition for ADC Auto Trigger source**********/
-#define FREE_RUNNING 0b000
-#define TIMER1_CMP_B 0b101
-
-
-class Adc
-{
-  public :
-    void begin();
-    void attachInterrupt(void (*isr)() = NULL); 
-    void detachInterrupt();
-    void setChannel(byte channel);
-    void (*isrCallback)();               //Function pointer for interrupt routine
-    // virtual void isrCallback() = 0;
-    void setAutoTriggerSource(byte source);
-    void startConversion(byte channel = 0);
-};
-
 extern Timer1 timer1;
-extern Adc adc;
 #endif
