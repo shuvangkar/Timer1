@@ -30,8 +30,8 @@ void Timer1::setTopValue(float freq)
   else if ((top = top >> 2) < RESOLUTION) _prescalerBits = (1 << CS12);                //prescale by 1/256
   else if ((top = top >> 2) < RESOLUTION) _prescalerBits = (1 << CS12) | (1 << CS10);  //prescale by 1/1024
   else    top = RESOLUTION,               _prescalerBits = (1 << CS12) | (1 << CS10);  //out of bound. set as maximum
-  Serial.print(F("Top :")); Serial.println(top);
-  Serial.print(F("Prescalebits : "));Serial.println(_prescalerBits, BIN);
+  Serial.print(F("TimerA top :")); Serial.print(top);
+  Serial.print(F(" | Presclaer : "));Serial.println(_prescalerBits);
   byte oldReg = SREG;
   cli();
   ICR1 = top - 1;
