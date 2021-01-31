@@ -12,12 +12,14 @@ class Timer1
     //    void attachInterrupt(void (*isr)());
     void attachIntCompB(void (*isr)() = NULL);
     //    void detachInterrupt();
+    // uint32_t ms()
     void start();
     void stop();
     // virtual void isrCallback() = 0;
     void (*isrCallback)(); //Function pointer for interrupt routine
   private:
     unsigned char _prescalerBits;
+    // uint32_t _freq = 0;
 };
 
 extern Timer1 timer1;
